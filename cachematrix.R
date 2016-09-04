@@ -6,7 +6,7 @@
 ## 4 and last is get the value of inverse of the matrix
 
 makecachematrix<-function(x = matrix()) {
-  inverse1 <- NULL
+  inverse1 <- NULL 
   set <- function(n) {
     x <<- n
     inverse1 <<- NULL
@@ -23,7 +23,7 @@ makecachematrix<-function(x = matrix()) {
 
 
 cachesolve <- function(x, ...){
-  inverse1 <- x$getInversefun()
+  inverse1 <- x$getInversefun() ##returns matrix that is the inverse of 'x'
   if (!is.null(inverse1)){
     message("get cache data")
     return(inverse1)
@@ -36,7 +36,7 @@ cachesolve <- function(x, ...){
   }
 
 
-source('C:/Users/monalisa.samal/Desktop/IIMB/Module 3/Day 5/Matrix.R')
+##source('C:/Users/monalisa.samal/Desktop/IIMB/Module 3/Day 5/Matrix.R')
 
 ##test the matrix
 testmatrix<- makecachematrix(matrix( 1:6, 2, 2))
@@ -48,3 +48,12 @@ testmatrix$set(matrix(c(10,20,30,40),2,2))
 testmatrix$get()
 testmatrix$getInversefun()
 cachesolve(testmatrix)
+
+##another test from internet maths
+testmatrix3<-matrix(c(1,3,3,1,4,3,1,3,4),3,3)
+t(testmatrix3)
+testmatrix4<-makecachematrix(t(testmatrix3))
+testmatrix4$get()
+testmatrix4$getInversefun()
+cachesolve(testmatrix4)
+
